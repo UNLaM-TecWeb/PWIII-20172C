@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>@Page.Title</title>
+        
+        @RenderSection("head", required: false)
+        
+        @Styles.Render("~/Bundles/styles")
+    
+    </head>
+    
+    <body>
+
+        @RenderBody()
+        
+        @Scripts.Render("~/Bindles/scripts")
+
+    </body>
+</html>
