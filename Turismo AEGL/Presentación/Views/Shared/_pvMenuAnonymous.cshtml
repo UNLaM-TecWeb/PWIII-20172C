@@ -18,6 +18,11 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.TextBoxFor(m => m.Nombre, new { placeholder="Usuario" })
+                    @Html.TextBoxFor(m => m.Contrasenia, new { placeholder="Contraseña" })
+                }
                 <li>@Html.ActionLink("Iniciar sesión", "Home", "IniciarSesion")</li>
             </ul>
         </div><!-- /.navbar-collapse -->

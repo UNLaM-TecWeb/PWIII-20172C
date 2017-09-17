@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <title>@Page.Title</title>
-        
-        @RenderSection("head", required: false)
-        
+        @*@RenderSection("head")*@
         @Styles.Render("~/Bundles/styles")
-    
     </head>
     
     <body>
+        @if (Session["IdUsuario"] != null && Session["EsAdmin"] == true)
+            RenderPartial("_pvMenuAdministrator");
+
+        @if (Session["IdUsuario"] != null && Session["EsAdmin"] == false)
+            RenderPartial("_pvMenuUser");
+
+        @if (Session["IdUsuario"] == null)
+            RenderPartial("_pvMenuAnonymous");
 
         @RenderBody()
-        
-        @Scripts.Render("~/Bindles/scripts")
-
+        @Scripts.Render("~/Bundles/scripts")
     </body>
 </html>
