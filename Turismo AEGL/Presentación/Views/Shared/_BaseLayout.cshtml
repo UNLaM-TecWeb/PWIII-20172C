@@ -2,19 +2,24 @@
 <html>
     <head>
         <title>@Page.Title</title>
-        @*@RenderSection("head")*@
         @Styles.Render("~/Bundles/styles")
     </head>
     
     <body>
-        @if (Session["IdUsuario"] != null && Session["EsAdmin"] == true)
-            RenderPartial("_pvMenuAdministrator");
+        @if (Session["IdUsuario"] != null && Convert.ToBoolean(Session["EsAdmin"]) == true)
+        {
+            @Html.Partial("_pvMenuAdministrator")
+        }
 
-        @if (Session["IdUsuario"] != null && Session["EsAdmin"] == false)
-            RenderPartial("_pvMenuUser");
+        @if (Session["IdUsuario"] != null && Convert.ToBoolean(Session["EsAdmin"]) == false)
+        {
+            @Html.Partial("_pvMenuUser")
+        }
 
         @if (Session["IdUsuario"] == null)
-            RenderPartial("_pvMenuAnonymous");
+        {
+            @Html.Partial("_pvMenuAnonymous")
+        }
 
         @RenderBody()
         @Scripts.Render("~/Bundles/scripts")
