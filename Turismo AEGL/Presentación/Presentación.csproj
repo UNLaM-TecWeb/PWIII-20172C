@@ -180,7 +180,7 @@
     <Content Include="Views\Shared\_pvMenuAdministrator.cshtml" />
     <Content Include="Views\Shared\_pvMenuAnonymous.cshtml" />
     <Content Include="Views\Shared\_pvMenuUser.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Registrarse.cshtml" />
     <Content Include="Views\Shared\_AnonymousLayout.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
