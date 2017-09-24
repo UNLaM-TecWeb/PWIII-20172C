@@ -6,15 +6,24 @@ namespace Presentación.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            ScriptBundle ScBundle = new ScriptBundle("~/bundles/scripts");
+            StyleBundle StBundle = new StyleBundle("~/bundles/styles");
+
             // Script bundles
-            bundles.Add(new ScriptBundle("~/Bundles/scripts").Include("~/Content/jquery-3.2.1/jquery-3.2.1.*"));
-            bundles.Add(new ScriptBundle("~/Bundles/scripts").Include("~/Content/bootstrap-3.3.7/js/*.js"));
+            ScBundle.Include(
+                "~/Content/jquery-3.2.1/*.js", 
+                "~/Content/bootstrap-3.3.7/js/*.js");
 
             // Style bundles
-            bundles.Add(new StyleBundle("~/Bundles/styles").Include("~/Content/bootstrap-3.3.7/css/*"));
+            StBundle.Include(
+                "~/Content/bootstrap-3.3.7/css/bootstrap.*");
             
             // Habilitamos la inteligencia para que durante la sesión de debug se utilicen los archivos de desarrollo en lugar de los de producción, la minificación, etc.
             BundleTable.EnableOptimizations = true;
+
+            // Agregamos los bundles a la colección de bundles.
+            bundles.Add(ScBundle);
+            bundles.Add(StBundle);
         }
     }
 }

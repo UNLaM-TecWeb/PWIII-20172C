@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>@Page.Title</title>
-        @Styles.Render("~/Bundles/styles")
+        @Styles.Render("~/bundles/styles")
     </head>
     
     <body>
@@ -16,12 +19,12 @@
             @Html.Partial("_pvMenuUser")
         }
 
-        @if (Session["IdUsuario"] == null)
+        @if (Session["IdUsuario"] == null) // @TODO: Ésta línea tira un error, supongo que es un conflicto de tipos de datos.
         {
             @Html.Partial("_pvMenuAnonymous")
         }
 
         @RenderBody()
-        @Scripts.Render("~/Bundles/scripts")
+        @Scripts.Render("~/bundles/scripts")
     </body>
 </html>
