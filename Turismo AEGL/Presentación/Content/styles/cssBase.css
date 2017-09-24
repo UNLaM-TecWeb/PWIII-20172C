@@ -1,0 +1,14 @@
+﻿body 
+{
+	background: url('../../Content/img/background3.jpg') no-repeat center center fixed;	
+}
+
+.divOpaco
+	{
+	background: #fff;
+	background: rgba(0, 0, 0, .30);
+	}
+.fuenteBlanca
+	{
+	color: #fff;	
+	}

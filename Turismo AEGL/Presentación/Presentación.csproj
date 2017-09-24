@@ -141,12 +141,16 @@
     <Content Include="Content\bootstrap-3.3.7\js\bootstrap.js" />
     <Content Include="Content\bootstrap-3.3.7\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap-3.3.7\js\npm.js" />
+    <Content Include="Content\img\background1.jpg" />
+    <Content Include="Content\img\background2.jpg" />
+    <Content Include="Content\img\background3.jpg" />
     <Content Include="Content\jquery-3.2.1\jquery-3.2.1.js" />
     <Content Include="Content\jquery-3.2.1\jquery-3.2.1.min.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.min.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\styles\cssBase.css" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
