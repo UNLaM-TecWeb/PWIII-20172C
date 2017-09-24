@@ -16,7 +16,8 @@ namespace Presentación.App_Start
 
             // Style bundles
             StBundle.Include(
-                "~/Content/bootstrap-3.3.7/css/bootstrap.*");
+                "~/Content/bootstrap-3.3.7/css/bootstrap.*",
+                "~/Content/styles/*.css");
             
             // Habilitamos la inteligencia para que durante la sesión de debug se utilicen los archivos de desarrollo en lugar de los de producción, la minificación, etc.
             BundleTable.EnableOptimizations = true;
