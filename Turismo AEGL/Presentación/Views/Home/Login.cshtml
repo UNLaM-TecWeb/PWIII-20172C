@@ -1,0 +1,14 @@
+﻿@using Presentación.Servicios.Entidades
+@model LoginModel
+
+@{
+    Layout = "~/Views/Shared/_AnonymousLayout.cshtml";
+}
+
+<div> 
+    @Html.BeginForm("Login", "Home") {
+        <input type="text" name="Email" placeholder="e-mail" />
+        <input type="password" name="Contrasenia" placeholder="Contraseña" />
+        <input type="submit" value="Logearse" />
+    }
+</div>

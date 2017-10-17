@@ -8,20 +8,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand">Turismo AEGL</span>
+            <span class="navbar-brand">Turismo AEGL - Admin (@Session["NombreUsuario"])</span>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <!-- <li class="active"><a href="#">Inicio<span class="sr-only">(current)</span></a></li> -->
-                <li>@Html.ActionLink("Inicio", "Home", "Inicio")</li>
-                <li>@Html.ActionLink("Listar paquetes", "Paquete", "Listar")</li>
-                <li>@Html.ActionLink("Crear paquete", "Paquete", "Crear")</li>
+                <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
+                <li>@Html.ActionLink("Listar paquetes", "Listar", "Paquete")</li>
+                <li>@Html.ActionLink("Crear paquete", "Crear", "Paquete")</li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Cerrar sesión", "Home", "CerrarSesion")</li>
+                <li>@Html.ActionLink("Cerrar sesión", "Logout", "Home")</li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
