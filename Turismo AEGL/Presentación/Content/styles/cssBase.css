@@ -7,6 +7,7 @@
 {
 	background: #fff;
 	background: rgba(0, 0, 0, .30);
+    margin-top: 5%;
 }
 .fuenteBlanca
 {
@@ -16,4 +17,38 @@
 .fondoBlanco
 {
   background:#FFFFFF;
+}
+
+.margenInf 
+{
+    margin-bottom:3%;
+}
+
+.paquete
+{
+
+    margin-bottom:5%;
+    margin-left:0.1%;
+    margin-right:0.1%;
+	background: #fff;
+	background: rgba(0, 0, 0, .30);
+}
+
+.imPaq
+{
+    margin-top:2%;
+}
+
+.boton
+{
+    width:97%;
+    margin-bottom:2%;
+    font-weight: 700;
+}
+
+.boton2
+{
+    width:100%;
+    margin-bottom:2%;
+    font-weight: 700;
 }
