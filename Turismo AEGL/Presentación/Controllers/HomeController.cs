@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Presentación.ViewModels;
+using Dal;
+using Logica.Models;
 
 namespace Presentación.Controllers
 {
     public class HomeController : Controller
     {
-        private AutenticacionUsuarioServicio _servicio = new AutenticacionUsuarioServicio();
+        private LogicaUsuario Logica = new LogicaUsuario();
 
         public ActionResult Index()
         {
@@ -20,24 +23,28 @@ namespace Presentación.Controllers
         public ActionResult Login()
         {
             return View();
-            // Code goes here !
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginViewModel model)
         {
+
             if (ModelState.IsValid)
             {
-                var usuario = _servicio.Autenticar(model.Email, model.Contrasenia);
+                TurismoAEGLContext Contexto = new TurismoAEGLContext();
+                var Usuario = Logica.TraerUsuario(model.Email, model.Contrasenia);
 
-                if (usuario != null)
+                if (Usuario != null)
                 {
-                    Session["Id"] = 2;
-                    Session["EsAdmin"] = true;
+                    Session["IdUsuario"] = Usuario.Id;
+                    Session["NombreUsuario"] = Usuario.Nombre;
+                    Session["Email"] = Usuario.Email;
+                    Session["EsAdmin"] = (Usuario.Admin) ? true : false;
+
                     return RedirectToAction("Index");
                 }
             }
-            return View(model);
+            return View("Usuario o Contraseña incorrectos.");
         }
 
         public ActionResult Logout()
