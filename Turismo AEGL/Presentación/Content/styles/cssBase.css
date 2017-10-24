@@ -52,3 +52,33 @@
     margin-bottom:2%;
     font-weight: 700;
 }
+
+.fondo-transparente
+{
+    background-color: black;
+    border-radius: 15px;
+    margin-top:100px; 
+    height: 320px;
+    width: 100%;
+    opacity: 0.7;
+    position: absolute;
+    z-index: 20;
+}
+
+.sub-contenedor
+{
+     position:absolute;
+     z-index: 10; 
+}
+
+.contenedor-formu
+{
+    margin-top: 100px; 
+    position: absolute;
+    z-index: 30;
+    height: 400px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    color:white;
+}

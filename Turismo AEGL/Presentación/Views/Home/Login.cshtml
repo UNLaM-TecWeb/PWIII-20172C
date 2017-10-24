@@ -4,10 +4,26 @@
     Layout = "~/Views/Shared/_AnonymousLayout.cshtml";
 }
 
-<div> 
-    @Html.BeginForm("Login", "Home") {
-        <input type="email" id="Email" name="Email" placeholder="e-mail" />
-        <input type="password" id="Contrasenia" name="Contrasenia" placeholder="Contraseña" />
-        <input type="submit" id="btnIngresar" name="btnIngresar" value="Ingresar" />
-    }
+<div class="row">
+    <div class="col-md-12 sub-contenedor">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 ">
+                <div class="fondo-transparente">
+                </div>
+                <div class="contenedor-formu">
+                    <h2>Iniciar Session</h2>
+                    @Html.BeginForm("Login", "Home") 
+                    {
+                        <input type="email" id="Email" name="Email" class="form-control" placeholder="e-mail" />
+                        <br />
+                        <input type="password" id="Contrasenia" class="form-control" name="Contrasenia" placeholder="Contraseña" />
+                        <br />
+                        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">ingresar</button>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 "></div>
+    </div>
 </div>

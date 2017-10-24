@@ -156,8 +156,6 @@
     <Content Include="Content\bootstrap-3.3.7\js\bootstrap.js" />
     <Content Include="Content\bootstrap-3.3.7\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap-3.3.7\js\npm.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\1.jpg" />
     <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\3.jpg" />
@@ -172,18 +170,10 @@
     <Content Include="Content\jquery-3.2.1\jquery.validate.min.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\styles\cssBase.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="scripts\ai.0.22.9-build00167.js" />
-    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
-    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -198,11 +188,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\AutenticacionUsuarioServicio.cs" />
-    <Compile Include="Servicios\Entidades\LoginModel.cs" />
-    <Compile Include="Servicios\Entidades\Paquete.cs" />
-    <Compile Include="Servicios\Entidades\Reserva.cs" />
-    <Compile Include="Servicios\Entidades\Usuario.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,13 +211,7 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Shared\_AdministratorLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\PanelUsuario.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Admin\PanelAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

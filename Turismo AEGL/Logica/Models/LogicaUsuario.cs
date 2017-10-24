@@ -12,12 +12,15 @@ namespace Logica.Models
         public Usuario TraerUsuario(string email, string contrasenia)
         {
             TurismoAEGLContext Contexto = new TurismoAEGLContext();
-            Usuario Usu = new Usuario();
+            Usuario usuario = new Usuario();
 
-            Usu = (from u in Contexto.Usuario
+            var usu = (from u in Contexto.Usuario
                        where u.Email == email && u.Contrasenia == contrasenia
-                       select u).First();
-            return Usu;
+                       select u);
+
+            usuario = (usu.Count() > 0) ? usu.First() : null;
+
+            return usuario;
         }
     }
 }
