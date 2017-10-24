@@ -12,8 +12,8 @@
                 <div class="fondo-transparente">
                 </div>
                 <div class="contenedor-formu">
-                    <h2>Iniciar Session</h2>
-                    @Html.BeginForm("Login", "Home") 
+                    <h2>Iniciar Sesi&oacute;n</h2>
+                    @using (Html.BeginForm("Login", "Home"))
                     {
                         <input type="email" id="Email" name="Email" class="form-control" placeholder="e-mail" />
                         <br />
