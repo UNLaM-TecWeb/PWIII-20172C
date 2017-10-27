@@ -38,6 +38,8 @@ namespace Presentación.Controllers
                     return RedirectToAction("Index");
                 }
             }
+
+            ViewBag.ErrorMessage = "El e-mail o la contraseña son incorrectos.";
             return View(model);
         }
 
