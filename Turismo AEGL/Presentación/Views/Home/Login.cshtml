@@ -15,9 +15,13 @@
                     <h2>Iniciar Sesi&oacute;n</h2>
                     @using (Html.BeginForm("Login", "Home"))
                     {
-                        <input type="email" id="Email" name="Email" class="form-control" placeholder="e-mail" />
+                        @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", @placeholder = "e-mail", @name = "Email", @autofocus = "autofocus" })
+                        @Html.ValidationMessageFor(Model => Model.Email)
                         <br />
-                        <input type="password" id="Contrasenia" class="form-control" name="Contrasenia" placeholder="Contraseña" />
+                        @Html.TextBoxFor(Model => Model.Contrasenia, new { @class = "form-control", @placeholder = "Contraseña", @name = "Contrasenia" })
+                        @Html.ValidationMessageFor(Model => Model.Contrasenia)
+                        <br />
+                        <p class = "bg-primary">@ViewBag.ErrorMessage</p>
                         <br />
                         <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">ingresar</button>
                     }
