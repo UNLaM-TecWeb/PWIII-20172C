@@ -19,7 +19,7 @@
             @Html.Partial("_pvMenuUser")
         }
 
-        @if (Session["IdUsuario"] == null) // @TODO: Ésta línea tira un error, supongo que es un conflicto de tipos de datos.
+        @if (Session["IdUsuario"] == null) 
         {
             @Html.Partial("_pvMenuAnonymous")
         }

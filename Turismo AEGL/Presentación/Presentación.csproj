@@ -183,7 +183,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PaquetesController.cs" />
+    <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +217,7 @@
     <Content Include="Views\Paquetes\Nuevo.cshtml" />
     <Content Include="Views\Paquetes\Listar.cshtml" />
     <Content Include="Views\Paquetes\Editar.cshtml" />
+    <Content Include="Views\Reserva\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -235,6 +236,10 @@
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{d723b52d-fbc4-4ba1-a5da-45aebc64d4ca}</Project>
       <Name>Logica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{ce78d4cb-7355-4dc4-b2be-1f475760415e}</Project>
+      <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
