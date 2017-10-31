@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Dal.Paquete>
+
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Foto
+        </th>
+        <th>
+            Fecha de inicio
+        </th>
+        <th>
+            Fecha de fin
+        </th>
+        <th>
+            Lugares disponibles
+        </th>
+        <th>
+            Precio por persona
+        </th>
+        <th>
+            Destacado
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var p in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => p.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.Foto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.FechaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.LugaresDisponibles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.PrecioPorPersona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => p.Destacado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = p.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = p.Id }, new { @class = "aElimina" })
+        </td>
+    </tr>
+}
+
+    </table>
+
+@section scripts{
+    <script>
+        $(".aElimina").click(function (event) {
+            if (!confirm('Estas seguro de eliminar ?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}
+

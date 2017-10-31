@@ -1,0 +1,61 @@
+﻿@model Dal.Paquete
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12 sub-contenedor">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 ">
+            
+                <div class="divOpaco">
+                    <h2>Editar paquete</h2>
+                    @using (Html.BeginForm("Editar", "Paquetes"))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(p => p.Id)
+                        <p>Nombre</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Nombre);
+                        <br />
+                        <p>Descripción</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Descripcion);
+                        <br />
+                        <p>Foto</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Foto, new { type = "file" });
+                        <br />
+                        <p>Fecha de inicio</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.FechaInicio, new { type = "date" });
+                        <br />
+                        <p>Fecha de fin</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.FechaFin, new { type = "date" });
+                        <br />
+                        <p>Lugares disponibles</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.LugaresDisponibles);
+                        <br />
+                        <p>Precio por persona</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.PrecioPorPersona);
+                        <br />
+                        <p>Destacado</p>
+                        <br />
+                        @Html.CheckBoxFor(p => p.Destacado);
+                        <br />
+                        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Editar</button>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 "></div>
+    </div>
+</div>
+

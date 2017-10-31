@@ -7,15 +7,18 @@ using Dal;
 
 namespace Logica.Models
 {
-    class LogicaPaquete
+    public class LogicaPaquete
     {
-        public Paquete AgregarPaquete(Paquete p)
+        public static void AgregarPaquete(Paquete p)
         {
-            TurismoAEGLContext Contexto = new TurismoAEGLContext();
-            Paquete paquete = new Paquete();
-
-            paquete = p;
+            using (var db = new TurismoAEGLContext())
+            {
+                db.Paquete.Add(p);
+                db.SaveChanges();
+            }
 
         }
+
+
     }
 }

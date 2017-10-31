@@ -215,6 +215,8 @@
     <Content Include="Views\User\PanelUsuario.cshtml" />
     <Content Include="Views\Admin\PanelAdmin.cshtml" />
     <Content Include="Views\Paquetes\Nuevo.cshtml" />
+    <Content Include="Views\Paquetes\Listar.cshtml" />
+    <Content Include="Views\Paquetes\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

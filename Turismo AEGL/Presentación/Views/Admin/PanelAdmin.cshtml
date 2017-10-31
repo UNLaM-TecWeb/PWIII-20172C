@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Dal.Paquete>
+@{
     Layout = "~/Views/Shared/_AnonymousLayout.cshtml";
 }
 
@@ -19,22 +20,36 @@
                         <th><h4>ACCIONES </h4></th>
                     </tr>
 
+                   @foreach (var p in Model)
+                   {
                     <tr>
-                        <td>03</td>
-                        <td>Japon</td>
-                        <td>01/12/2017</td>
-                        <td>01/06/2018</td>
-                        <td>SI</td>
-                        <td>$30000</td>
                         <td>
-
-                            <a href="..." class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="..." class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                            @Html.DisplayFor(modelP => p.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelP => p.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelP => p.FechaInicio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelP => p.FechaFin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelP => p.Destacado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelP => p.PrecioPorPersona)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Editar", "Paquetes", new { id = p.Id }, null) |
+                            @Html.ActionLink("Eliminar", "Eliminar", new { id = p.Id }, new { @class = "aElimina" })
                         </td>
                     </tr>
+                   }
 
                     <tr>
-                        <a href="..." class="btn btn-warning boton2 "> CREAN NUEVO PAQUETE </a>
+                        <a href="/Paquetes/Nuevo" class="btn btn-warning boton2 "> CREAR NUEVO PAQUETE </a>
                     </tr>
                 </table>
             </div>
