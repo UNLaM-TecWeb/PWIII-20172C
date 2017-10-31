@@ -14,5 +14,6 @@ namespace Modelo.ViewModels
         public float Precio { get; set; }
         public int DiaDeSalida { get; set; }
         public string MesDeSalida { get; set; }
+        public string Foto { get; set; }
     }
 }

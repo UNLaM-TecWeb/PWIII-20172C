@@ -1,17 +1,21 @@
 ﻿using System.Web.Mvc;
 using Presentación.ViewModels;
+using System.Collections.Generic;
 using Dal;
 using Logica.Models;
+using Modelo.ViewModels;
 
 namespace Presentación.Controllers
 {
     public class HomeController : Controller
     {
-        private LogicaHomeLogin Logica = new LogicaHomeLogin();
+        private LogicaHome Logica = new LogicaHome();
 
         public ActionResult Index()
         {
-            return View();
+            List<IndexViewModel> ListaDePaquetes = new List<IndexViewModel>();
+            ListaDePaquetes = Logica.ListarTodosLosPaquetesDestacados();
+            return View(ListaDePaquetes);
         }
 
         public ActionResult Login()
