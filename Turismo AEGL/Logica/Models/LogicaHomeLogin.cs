@@ -7,11 +7,12 @@ using Dal;
 
 namespace Logica.Models
 {
-    public class LogicaUsuario
+    public class LogicaHomeLogin
     {
+        TurismoAEGLContext Contexto = new TurismoAEGLContext();
+
         public Usuario TraerUsuario(string email, string contrasenia)
         {
-            TurismoAEGLContext Contexto = new TurismoAEGLContext();
             Usuario usuario = new Usuario();
 
             var usu = (from u in Contexto.Usuario

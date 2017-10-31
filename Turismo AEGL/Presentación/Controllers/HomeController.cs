@@ -7,7 +7,7 @@ namespace Presentación.Controllers
 {
     public class HomeController : Controller
     {
-        private LogicaUsuario Logica = new LogicaUsuario();
+        private LogicaHomeLogin Logica = new LogicaHomeLogin();
 
         public ActionResult Index()
         {

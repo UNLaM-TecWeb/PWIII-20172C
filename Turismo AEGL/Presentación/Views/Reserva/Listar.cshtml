@@ -1,0 +1,37 @@
+﻿@using Modelo.ViewModels
+@model IEnumerable<HistorialReservasViewModel>
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h1>Historial de paquetes reservados</h1></div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th><h4>Nombre</h4></th>
+                        <th><h4>Fecha de inicio</h4></th>
+                        <th><h4>Fecha de fin</h4></th>
+                        <th><h4>Cantidad de personas</h4></th>
+                        <th><h4>Precio por persona</h4></th>
+                        <th><h4>Precio total</h4></th>
+                        <th><h4></h4></th>
+                    </tr>
+                    @foreach (var reserva in Model)
+                    {
+                        <tr>
+                            <td>@reserva.Nombre</td>
+                            <td>@reserva.FechaInicio</td>
+                            <td>@reserva.FechaFin</td>
+                            <td>@reserva.CantidadDePersonas</td>
+                            <td>@reserva.PrecioPorPersona</td>
+                            <td>@reserva.PrecioTotal</td>
+                            <td><a href="@Url.Content("/User/Reserva/Cancelar/")@reserva.IdReserva" class="btn btn-danger">Cancelar reserva</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
