@@ -1,0 +1,31 @@
+﻿@model Dal.Paquete
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<div class="col-md-3"></div>
+
+<div class="col-md-6 divOpaco">
+   <div class="fuenteBlanca">
+       <h1>@Model.Nombre</h1>
+       <img src="@Url.Content(Model.Foto)" class="imPaq" />
+       <h4>Detalle:@Model.Descripcion</h4>
+       <h4>Saliendo el @Model.FechaInicio</h4>
+       <h4>Volviendo el @Model.FechaFin</h4>
+       <h4>Lugares disponibles @Model.LugaresDisponibles</h4>
+       <h4>Precio por persona: $@Model.PrecioPorPersona</h4>
+       <a href="@Url.Content("/Paquete/Reservar")?idPaquete=@Model.Id&idUsuario=@Session["IdUsuario"]" class="btn btn-success">Para reservar haga clic aqui</a>
+   </div>
+
+    @*<form action="~/Paquete/Reservar" method="post">
+        <input type="hidden" name="IdPaquete" value="@Model.Id" />
+        <input type="hidden" name="IdUsuario" value="@Session["IdUsuario"]" />
+        <input type="number" name="CantPersonas" placeholder="Ingrese cantidad de personas que viajaran"/>
+        <input type="submit" class="btn btn-success" value="Reservar paquete" />
+    </form>*@
+
+</div>
+
+
+<div class="col-md-3"></div>
+

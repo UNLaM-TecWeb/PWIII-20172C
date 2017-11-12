@@ -10,10 +10,8 @@ namespace Modelo.ViewModels
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int CantidadDeNoches { get; set; }
         public float Precio { get; set; }
-        public int DiaDeSalida { get; set; }
-        public string MesDeSalida { get; set; }
+        public string FechaDeSalida { get; set; }
         public string Foto { get; set; }
     }
 }

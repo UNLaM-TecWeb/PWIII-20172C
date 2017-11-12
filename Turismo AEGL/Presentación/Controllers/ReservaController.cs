@@ -10,7 +10,7 @@ namespace Presentación.Controllers
 {
     public class ReservaController : Controller
     {
-        LogicaReservaListarViewModel logicaReserva = new LogicaReservaListarViewModel();
+        LogicaReserva logicaReserva = new LogicaReserva();
 
         public ActionResult Listar()
         {
@@ -23,7 +23,6 @@ namespace Presentación.Controllers
 
             Listado = logicaReserva.ListarReservas(Convert.ToInt32(Session["IdUsuario"]));
             return View(Listado);
-
         }
     }
 }

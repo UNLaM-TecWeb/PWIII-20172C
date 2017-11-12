@@ -27,54 +27,49 @@ namespace Logica.Models
 
         public List<IndexViewModel> ListarTodosLosPaquetesDestacados()
         {
-            // Declaro las variables y objetos que voy a necesitar.
-            IndexViewModel Paquete;
-            List<IndexViewModel> Listado = new List<IndexViewModel>();
-            string [] mes = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+            List<Paquete> ListadoDePaquetesDestacados = TraerPaquetesDestacados();
+            List<IndexViewModel> PaquetesDestacados = TransformarPaqueteAIndexViewModel(ListadoDePaquetesDestacados);
+            return PaquetesDestacados;
+        }
 
-            /* Traigo los datos que necesito para la vista:
-             * id del paquete, 
-             * nombre del paquete, 
-             * cantidad de noches (se calcula a partir de la diferencia entre la fecha de fin y la fecha de inicio),
-             * precio del paquete,
-             * día de salida (día expresado como fecha, el número del mes),
-             * mes de salida (expresado como enero, febrero, etc...),
-             * el path a la foto del paquete
-             * 
-             * Las validaciones son:
-             * - la​ ​fecha​ ​de​ ​inicio​ ​debe ser​ ​mayor​ ​a​ ​la​ ​fecha​ ​actual​ ​y​
-             * - tienen que estar ordenados​ ​por​ ​fecha​ ​de​ ​inicio​ ​ascendentemente.
-             */
-            var Consulta = (
+        private List<Paquete> TraerPaquetesDestacados()
+        {
+            List<Paquete> Paquetes = (
                 from p in Contexto.Paquete
                 where p.Destacado && p.FechaInicio > DateTime.Today
                 orderby p.FechaInicio ascending
-                select new
-                {
-                    Id = p.Id,
-                    Nombre = p.Nombre,
-                    CantidadDeNoches = 5,//p.FechaFin.da - p.FechaInicio.DayOfYear,
-                    Precio = p.PrecioPorPersona,
-                    DiaDeSalida = p.FechaInicio.Day,
-                    MesDeSalida = "enero",//mes[p.FechaInicio.Month - 1],
-                    Foto = p.Foto
-                }).ToList();
+                select p).ToList();
 
-            // Genero una lista con los datos que traje en la consulta anterior.
-            foreach (var paquete in Consulta)
+            return Paquetes;
+        }
+
+        private List<IndexViewModel> TransformarPaqueteAIndexViewModel(List<Paquete> listado)
+        {
+            IndexViewModel p;
+            List<IndexViewModel> Listado = new List<IndexViewModel>();
+
+            foreach (var paquete in listado)
             {
-                Paquete = new IndexViewModel();
-                Paquete.Id = paquete.Id;
-                Paquete.Nombre = paquete.Nombre;
-                Paquete.CantidadDeNoches = paquete.CantidadDeNoches;
-                Paquete.Precio = paquete.Precio;
-                Paquete.DiaDeSalida = paquete.DiaDeSalida;
-                Paquete.MesDeSalida = paquete.MesDeSalida;
-                Listado.Add(Paquete);
+                p = new IndexViewModel();
+                p.Id = paquete.Id;
+                p.Nombre = paquete.Nombre;
+                p.Precio = paquete.PrecioPorPersona;
+                p.FechaDeSalida = paquete.FechaInicio.ToLongDateString();
+                p.Foto = paquete.Foto;
+                Listado.Add(p);
             }
 
-            // Fin del metodo, devuelvo el listado que armé.
             return Listado;
+        }
+
+        public Paquete TraerPaquete(int id)
+        {
+            Paquete detalle = (
+                from p in Contexto.Paquete
+                where p.Id == id
+                select p).First();
+
+            return detalle;
         }
 
     }
