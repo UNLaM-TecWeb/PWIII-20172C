@@ -13,13 +13,9 @@ namespace Presentación.Controllers
         // GET: Admin
         public ActionResult PanelAdmin()
         {
+            List<PaqueteE> ListaPaquetes = LogicaAdmin.ListarPaquetes();
+            return View(ListaPaquetes);
                 
-                using (var db = new TurismoAEGLContext())
-                {
-                
-                    List<Paquete> paquetes = db.Paquete.ToList();
-                    return View(paquetes);
-                }
         }
     }
 }

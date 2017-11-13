@@ -1,9 +1,10 @@
-﻿@model IEnumerable<Dal.Paquete>
+﻿@model IEnumerable<Dal.PaqueteE>
 @{
-    Layout = "~/Views/Shared/_AnonymousLayout.cshtml";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <div class="container">
+    
     <div class="row">
 
         <div class="panel panel-warning">
@@ -20,36 +21,38 @@
                         <th><h4>ACCIONES </h4></th>
                     </tr>
 
-                   @foreach (var p in Model)
-                   {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelP => p.Id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelP => p.Nombre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelP => p.FechaInicio)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelP => p.FechaFin)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelP => p.Destacado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelP => p.PrecioPorPersona)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Editar", "Editar", "Paquetes", new { id = p.Id }, null) |
-                            @Html.ActionLink("Eliminar", "Eliminar", new { id = p.Id }, new { @class = "aElimina" })
-                        </td>
-                    </tr>
-                   }
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.FechaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.FechaFin)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Destacado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.PrecioPorPersona)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", "Paquete", new { id = p.Id }, null) |
+                                @Html.ActionLink("Eliminar", "Eliminar", "Paquete", new { id = p.Id }, null)
+                            </td>
+                        </tr>
+                    }
 
                     <tr>
-                        <a href="/Paquetes/Nuevo" class="btn btn-warning boton2 "> CREAR NUEVO PAQUETE </a>
+                        <td>
+                            <a href="/Paquete/Nuevo" class="btn btn-warning boton2 "> CREAR NUEVO PAQUETE </a>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -57,3 +60,5 @@
 
     </div>
 </div>
+
+

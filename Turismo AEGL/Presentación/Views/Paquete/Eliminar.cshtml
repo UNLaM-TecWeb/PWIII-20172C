@@ -1,0 +1,31 @@
+﻿@model Dal.Paquete
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h1>¿ESTA SEGURO QUE DESEA ELIMINAR ESTE PAQUETE?</h1>
+
+@using (Html.BeginForm("Eliminar", "Paquete"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(p => p.Id)
+    <p>Nombre: @Html.DisplayFor(p => p.Nombre)</p>
+                        <br />
+    <p>Descripción: @Html.DisplayFor(p => p.Descripcion)</p>
+                        <br />
+    <p>Fecha de inicio: @Html.DisplayFor(p => p.FechaInicio)</p>
+                        <br />
+    <p>Fecha de fin: @Html.DisplayFor(p => p.FechaFin)</p>
+                        <br />
+    <p>Lugares disponibles: @Html.DisplayFor(p => p.LugaresDisponibles)</p>
+                        <br />
+    <p>Precio por persona: @Html.DisplayFor(p => p.PrecioPorPersona)</p>
+                        <br />
+    <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Eliminar</button>
+    <a href="/Admin/PanelAdmin/" class="btn btn-default">Volver</a>
+}
+

@@ -79,6 +79,7 @@
     <Compile Include="Paquete.cs">
       <DependentUpon>ModelTurismoAEGL.tt</DependentUpon>
     </Compile>
+    <Compile Include="PaqueteE.cs" />
     <Compile Include="Reserva.cs">
       <DependentUpon>ModelTurismoAEGL.tt</DependentUpon>
     </Compile>

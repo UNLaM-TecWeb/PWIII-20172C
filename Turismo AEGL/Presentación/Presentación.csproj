@@ -183,12 +183,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaqueteController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ImagenesUtility.cs" />
+    <Compile Include="Utilities\StringUtility.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,10 +217,11 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\User\PanelUsuario.cshtml" />
     <Content Include="Views\Admin\PanelAdmin.cshtml" />
-    <Content Include="Views\Paquetes\Nuevo.cshtml" />
-    <Content Include="Views\Paquetes\Listar.cshtml" />
-    <Content Include="Views\Paquetes\Editar.cshtml" />
+    <Content Include="Views\Paquete\Nuevo.cshtml" />
+    <Content Include="Views\Paquete\Listar.cshtml" />
+    <Content Include="Views\Paquete\Editar.cshtml" />
     <Content Include="Views\Reserva\Listar.cshtml" />
+    <Content Include="Views\Paquete\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
