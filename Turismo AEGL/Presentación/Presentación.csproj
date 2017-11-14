@@ -181,7 +181,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaqueteController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
@@ -215,13 +214,13 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Shared\_AdministratorLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\User\PanelUsuario.cshtml" />
-    <Content Include="Views\Admin\PanelAdmin.cshtml" />
-    <Content Include="Views\Paquete\Nuevo.cshtml" />
     <Content Include="Views\Paquete\Listar.cshtml" />
+    <Content Include="Views\Paquete\Nuevo.cshtml" />
     <Content Include="Views\Paquete\Editar.cshtml" />
     <Content Include="Views\Reserva\Listar.cshtml" />
     <Content Include="Views\Paquete\Eliminar.cshtml" />
+    <Content Include="Views\Paquete\Detalle.cshtml" />
+    <Content Include="Views\Paquete\Reservar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

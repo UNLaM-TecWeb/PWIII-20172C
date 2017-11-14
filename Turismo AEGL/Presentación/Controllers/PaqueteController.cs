@@ -7,16 +7,58 @@ using System.Data.Entity.Validation;
 using Dal;
 using System;
 using Presentación.Utilities;
+using System.Collections.Generic;
+using Modelo.ViewModels;
 
 namespace Presentación.Controllers
 {
     public class PaqueteController : Controller
     {
+        LogicaHome Logica = new LogicaHome();
+        LogicaReserva logicaReserva = new LogicaReserva();
 
-        // GET: Paquetes
+        public ActionResult Detalle(int id)
+        {
+            Paquete traerP = Logica.TraerPaquete(id);
+            return View(traerP);
+        }
+
+        [HttpGet]
+        public ActionResult Reservar(int id)
+        {
+            ViewBag.IdPaquete = id;
+            ViewBag.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Reservar(ReservaViewModel re)
+        {
+            Reserva r = logicaReserva.GenerarReserva(re.IdPaquete, re.IdUsuario, re.CPersonas);
+
+            logicaReserva.GuardarReserva(r);
+            return RedirectToAction("Listar", "Reserva");
+        }
+
+        public ActionResult Listar()
+        {
+            if (Convert.ToBoolean(Session["EsAdmin"]))
+            {
+                List<PaqueteE> ListaPaquetes = LogicaAdmin.ListarPaquetes();
+                return View(ListaPaquetes);
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
         public ActionResult Nuevo()
         {
-            return View();
+            if (Convert.ToBoolean(Session["EsAdmin"]))
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpPost]
@@ -25,6 +67,7 @@ namespace Presentación.Controllers
         {
             if (ModelState.IsValid)
                 return View();
+
             try
             {
                 if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
@@ -34,43 +77,42 @@ namespace Presentación.Controllers
                     p.Foto = pathRelativoImagen;
                 }
                 LogicaPaquete.AgregarPaquete(p);
-                return RedirectToAction("PanelAdmin", "Admin");
+                return RedirectToAction("Listar", "Paquete");
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
-
-            
         }
 
         public ActionResult Editar(int id)
         {
-            try
+            if (Convert.ToBoolean(Session["EsAdmin"]))
             {
-                
-                using (var db = new TurismoAEGLContext())
+                try
                 {
-                    Paquete paq = db.Paquete.Find(id);
-                    return View(paq);
+
+                    using (var db = new TurismoAEGLContext())
+                    {
+                        Paquete paq = db.Paquete.Find(id);
+                        return View(paq);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
                 }
             }
-            catch (Exception ex)
-            {
 
-                throw ex;
-            }
+            return RedirectToAction("Login", "Home");
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(PaqueteE p)
         {
             Paquete paqueteBD = LogicaPaquete.ObtenerPaquete().FirstOrDefault(pa => pa.Id == p.Id);
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
             if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
             {
@@ -88,19 +130,23 @@ namespace Presentación.Controllers
                     paqueteBD.Foto = pathRelativoImagen;
                 }
             }
-
             LogicaPaquete.EditarPaquete(p);
             
-            return RedirectToAction("PanelAdmin", "Admin");
+            return RedirectToAction("Listar", "Paquete");
         }
 
         public ActionResult Eliminar(int id)
         {
-            using (var db = new TurismoAEGLContext())
+            if (Convert.ToBoolean(Session["EsAdmin"]))
             {
-                Paquete paq = db.Paquete.Find(id);
-                return View(paq);
+                using (var db = new TurismoAEGLContext())
+                {
+                    Paquete paq = db.Paquete.Find(id);
+                    return View(paq);
+                }
             }
+
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpPost]
@@ -110,7 +156,7 @@ namespace Presentación.Controllers
             
                 LogicaPaquete.EliminarPaquete(p.Id);
                 
-                return RedirectToAction("PanelAdmin", "Admin");
+                return RedirectToAction("Listar", "Paquete");
         }
     }
 }

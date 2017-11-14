@@ -52,6 +52,7 @@
     <Compile Include="Models\LogicaAdmin.cs" />
     <Compile Include="Models\LogicaHome.cs" />
     <Compile Include="Models\LogicaPaquete.cs" />
+    <Compile Include="Models\LogicaReserva.cs" />
     <Compile Include="Models\LogicaReservaListarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

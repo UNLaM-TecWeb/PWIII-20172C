@@ -12,5 +12,9 @@ namespace Presentación.ViewModels
 
         [Required(ErrorMessage = "Éste campo es requerido.")]
         public string Contrasenia { get; set; }
+
+        public string Con { get; set; }
+        public string Act { get; set; }
+        //public int Idp { get; set; }
     }
 }

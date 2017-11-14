@@ -1,0 +1,30 @@
+﻿@model Dal.Paquete
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<div class="col-md-3"></div>
+
+<div class="col-md-6 fondo-detalle">
+   <div class="fuenteBlanca">
+       <h1>@Model.Nombre</h1>
+       <img src="@Url.Content(Model.Foto)" class="imPaq" />
+       <h4>Detalle:@Model.Descripcion</h4>
+       <h4>Saliendo el @Model.FechaInicio</h4>
+       <h4>Volviendo el @Model.FechaFin</h4>
+       <h4>Lugares disponibles @Model.LugaresDisponibles</h4>
+       <h4>Precio por persona: $@Model.PrecioPorPersona</h4>
+       @if (Session["IdUsuario"] == null)
+       {
+            <a href="@Url.Content("/Home/Login/")?con=Home&act=Index" class="btn btn-success boton2">Para reservar haga clic aqui</a>
+       }
+       else
+       {
+            <a href="@Url.Content("/Paquete/Reservar/")@Model.Id" class="btn btn-success boton2">Para reservar haga clic aqui</a>
+       }
+   </div>
+</div>
+
+
+<div class="col-md-3"></div>
+

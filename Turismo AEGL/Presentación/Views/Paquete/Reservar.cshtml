@@ -1,0 +1,22 @@
+﻿@model Modelo.ViewModels.ReservaViewModel
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="col-md-3"></div>
+<div class="col-md-6 divCant">
+
+    <h2 class="fuenteBlanca text-center margenInf2">SELECCIONE LA CANTIDAD DE PASAJEROS</h2>
+
+    @using (Html.BeginForm("Reservar", "Paquete"))
+    {
+        <input type="hidden" name="IdPaquete" value="@ViewBag.IdPaquete" />
+        <input type="hidden" name="IdUsuario" value="@ViewBag.IdUsuario" />
+        @Html.TextBoxFor(Model => Model.CPersonas, new { @type="number", @class = "form-control", @placeholder = "Ingrese cantidad de personas que viajaran", @name = "CPersonas", @autofocus = "autofocus" })
+        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">ingresar</button>
+    }
+
+
+</div>
+<div class="col-md-3"></div>

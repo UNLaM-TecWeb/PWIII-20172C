@@ -1,84 +1,64 @@
-﻿@model IEnumerable<Dal.Paquete>
-
+﻿@model IEnumerable<Dal.PaqueteE>
 @{
-    ViewBag.Title = "Listar";
-    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Listar</h2>
+<div class="container">
+    
+    <div class="row">
 
-<table class="table">
-    <tr>
-        <th>
-            Nombre
-        </th>
-        <th>
-            Descripción
-        </th>
-        <th>
-            Foto
-        </th>
-        <th>
-            Fecha de inicio
-        </th>
-        <th>
-            Fecha de fin
-        </th>
-        <th>
-            Lugares disponibles
-        </th>
-        <th>
-            Precio por persona
-        </th>
-        <th>
-            Destacado
-        </th>
-        <th></th>
-    </tr>
+        <div class="panel panel-warning">
+            <div class="panel-heading text-center"><h1>GESTION DE PAQUETES</h1></div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th><h4>ID</h4></th>
+                        <th><h4>DESTINO</h4></th>
+                        <th><h4>FECHA DE INICIO</h4></th>
+                        <th><h4>FECHA DE FINALIZACION</h4></th>
+                        <th><h4>DESTACADO</h4></th>
+                        <th><h4>PRECIO </h4></th>
+                        <th><h4>ACCIONES </h4></th>
+                    </tr>
 
-@foreach (var p in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => p.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.Foto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.FechaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.FechaFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.LugaresDisponibles)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.PrecioPorPersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => p.Destacado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id = p.Id }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { id = p.Id }, new { @class = "aElimina" })
-        </td>
-    </tr>
-}
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.FechaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.FechaFin)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.Destacado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelP => p.PrecioPorPersona)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", "Paquete", new { id = p.Id }, null) |
+                                @Html.ActionLink("Eliminar", "Eliminar", "Paquete", new { id = p.Id }, null)
+                            </td>
+                        </tr>
+                    }
 
-    </table>
+                    <tr>
+                        <td>
+                            <a href="/Paquete/Nuevo" class="btn btn-warning boton2 "> CREAR NUEVO PAQUETE </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-@section scripts{
-    <script>
-        $(".aElimina").click(function (event) {
-            if (!confirm('Estas seguro de eliminar ?')) {
-                event.preventDefault();
-            }
-        });
-    </script>
-}
+    </div>
+</div>
+
 

@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="ViewModels\HistorialReservasViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
+    <Compile Include="ViewModels\ReservaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

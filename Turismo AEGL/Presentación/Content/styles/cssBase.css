@@ -9,6 +9,22 @@
 	background: rgba(0, 0, 0, .30);
     margin-top: 5%;
 }
+
+.divCant
+{
+    background-color: black;
+    border-radius: 15px;
+	background: rgba(0, 0, 0, .50);
+    width:50%;
+    height:100%;
+}
+
+.fondo-detalle
+{
+    background-color: black;
+    border-radius: 15px;
+	background: rgba(0, 0, 0, .50);
+}
 .fuenteBlanca
 {
 	color: #fff;	
@@ -22,6 +38,11 @@
 .margenInf 
 {
     margin-bottom:3%;
+}
+
+.margenInf2 
+{
+    margin-bottom:5%;
 }
 
 .paquete

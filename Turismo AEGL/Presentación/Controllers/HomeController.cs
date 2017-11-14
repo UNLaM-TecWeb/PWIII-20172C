@@ -18,8 +18,11 @@ namespace Presentación.Controllers
             return View(ListaDePaquetes);
         }
 
-        public ActionResult Login()
+        [HttpGet]
+        public ActionResult Login(string con, string act)
         {
+            ViewBag.Con = con;
+            ViewBag.Act = act;
             return View();
         }
 
@@ -39,7 +42,7 @@ namespace Presentación.Controllers
                     Session["Email"] = usuario.Email;
                     Session["EsAdmin"] = (usuario.Admin) ? true : false;
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction(model.Act, model.Con);
                 }
             }
 
