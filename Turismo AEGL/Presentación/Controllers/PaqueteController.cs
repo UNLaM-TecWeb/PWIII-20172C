@@ -70,7 +70,7 @@ namespace Presentación.Controllers
         {
             Paquete paqueteBD = LogicaPaquete.ObtenerPaquete().FirstOrDefault(pa => pa.Id == p.Id);
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
             if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
             {

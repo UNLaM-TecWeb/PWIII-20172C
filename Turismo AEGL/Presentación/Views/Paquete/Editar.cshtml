@@ -14,7 +14,7 @@
             
                 <div class="divOpaco">
                     <h2>Editar paquete</h2>
-                    @using (Html.BeginForm("Editar", "Paquete"))
+                    @using (Html.BeginForm("Editar", "Paquete", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(p => p.Id)
