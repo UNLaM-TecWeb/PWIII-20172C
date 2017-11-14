@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Nuevo";
-    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
 <div class="row">
@@ -11,54 +11,57 @@
             <div class="col-md-4 "></div>
             <div class="col-md-4 ">
                 <div class="divOpaco">
-
-                        <h2>Nuevo paquete</h2>
-                        @using (Html.BeginForm("Nuevo", "Paquete"))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger " })
-                            @Html.HiddenFor(p => p.Id);
-                            <p class="fuenteBlanca">Nombre</p>
-                            @Html.TextBoxFor(p => p.Nombre);<br />
-                            @Html.ValidationMessageFor(p => p.Nombre, "", new { @class = "text-danger " })<br />
-                            <p class="fuenteBlanca">Descripción</p>
-                            
-                            @Html.TextBoxFor(p => p.Descripcion);
-                            @Html.ValidationMessageFor(p => p.Descripcion, "", new { @class = "text-danger " })<br />
-                            
-                            <p class="fuenteBlanca">Foto</p>
-                            
-                            @Html.TextBoxFor(p => p.Foto, new { type = "file" });
-                            @Html.ValidationMessageFor(p => p.Foto, "", new { @class = "text-danger " })<br />
-                            
-                            <p class="fuenteBlanca">Fecha de inicio</p>
-                            
-                            @Html.TextBoxFor(p => p.FechaInicio, new { type = "date" });
-                            @Html.ValidationMessageFor(p => p.FechaInicio, "", new { @class = "text-danger " })<br />
-                           
-                            <p class="fuenteBlanca">Fecha de fin</p>
-                            
-                            @Html.TextBoxFor(p => p.FechaFin, new { type = "date" });
-                            @Html.ValidationMessageFor(p => p.FechaFin, "", new { @class = "text-danger " })<br />
-                            
-                            <p class="fuenteBlanca">Lugares disponibles</p>
-                            
-                            @Html.TextBoxFor(p => p.LugaresDisponibles);
-                            @Html.ValidationMessageFor(p => p.LugaresDisponibles, "", new { @class = "text-danger " })<br />
-                            
-                            <p class="fuenteBlanca">Precio por persona</p>
-                            
-                            @Html.TextBoxFor(p => p.PrecioPorPersona);
-                            @Html.ValidationMessageFor(p => p.PrecioPorPersona, "", new { @class= "text-danger " })<br />
-
-                            <p class="fuenteBlanca">Destacado</p>
-                            
-                            @Html.CheckBoxFor(p => p.Destacado);<br />
-                            
-                            <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Crear</button>
-                        }
-                    </div>          
                 </div>
+                <div class="contenedor-formu">
+                    <h2>Nuevo paquete</h2>
+                    @using (Html.BeginForm("Nuevo", "Paquete", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(p => p.Id);
+                        <p>Nombre</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Nombre);
+                        @Html.ValidationMessageFor(p => p.Nombre, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Descripción</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Descripcion);
+                        @Html.ValidationMessageFor(p => p.Descripcion, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Foto</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.Foto, new { type = "file"});
+                        @Html.ValidationMessageFor(p => p.Foto, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Fecha de inicio</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.FechaInicio, new { type = "date" });
+                        @Html.ValidationMessageFor(p => p.FechaInicio, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Fecha de fin</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.FechaFin, new { type = "date" });
+                        @Html.ValidationMessageFor(p => p.FechaFin, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Lugares disponibles</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.LugaresDisponibles);
+                        @Html.ValidationMessageFor(p => p.LugaresDisponibles, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Precio por persona</p>
+                        <br />
+                        @Html.TextBoxFor(p => p.PrecioPorPersona);
+                        @Html.ValidationMessageFor(p => p.PrecioPorPersona, "", new { @class = "text-danger" })
+                        <br />
+                        <p>Destacado</p>
+                        <br />
+                        @Html.CheckBoxFor(p => p.Destacado);
+                        <br />
+                        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Crear</button>
+                    }
+                </div>
+            </div>
         </div>
         <div class="col-md-4 "></div>
     </div>
