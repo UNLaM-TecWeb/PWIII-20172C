@@ -42,7 +42,10 @@ namespace Presentación.Controllers
                     Session["Email"] = usuario.Email;
                     Session["EsAdmin"] = (usuario.Admin) ? true : false;
 
-                    return RedirectToAction(model.Act, model.Con);
+                    if (model.Act != null && model.Con != null)
+                        return RedirectToAction(model.Act, model.Con);
+                    else
+                        return RedirectToAction("Index", "Home");
                 }
             }
 

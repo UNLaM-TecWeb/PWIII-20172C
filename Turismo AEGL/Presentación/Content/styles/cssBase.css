@@ -3,6 +3,12 @@
 	background: url('../../Content/img/background3.jpg') no-repeat center center fixed;	
 }
 
+.imagen 
+{
+    height:200px;
+    width:275px;
+}
+
 .divOpaco
 {
 	background: #fff;

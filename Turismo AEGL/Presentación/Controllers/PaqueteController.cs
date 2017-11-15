@@ -26,15 +26,20 @@ namespace Presentación.Controllers
         [HttpGet]
         public ActionResult Reservar(int id)
         {
-            ViewBag.IdPaquete = id;
-            ViewBag.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
-            return View();
+            if (Convert.ToBoolean(Session["IdUsuario"]))
+            {
+                ViewBag.IdPaquete = id;
+                ViewBag.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                return View();
+            }
+
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpPost]
         public ActionResult Reservar(ReservaViewModel re)
         {
-            Reserva r = logicaReserva.GenerarReserva(re.IdPaquete, re.IdUsuario, re.CPersonas);
+            Reserva r = logicaReserva.GenerarReserva(re.IdPaquete, re.CPersonas, re.IdUsuario);
 
             logicaReserva.GuardarReserva(r);
             return RedirectToAction("Listar", "Reserva");
@@ -127,7 +132,7 @@ namespace Presentación.Controllers
                     string nombreSignificativo = p.NombreSignificativoImagen;
                     //Guardar Imagen
                     string pathRelativoImagen = ImagenesUtility.Guardar(Request.Files[0], nombreSignificativo);
-                    paqueteBD.Foto = pathRelativoImagen;
+                    p.Foto = pathRelativoImagen;
                 }
             }
             LogicaPaquete.EditarPaquete(p);

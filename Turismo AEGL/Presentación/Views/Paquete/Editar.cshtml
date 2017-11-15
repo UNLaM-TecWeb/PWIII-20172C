@@ -10,47 +10,55 @@
     <div class="col-md-12 sub-contenedor">
         <div class="row">
             <div class="col-md-4 "></div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 divOpaco">
             
-                <div class="divOpaco">
-                    <h2>Editar paquete</h2>
+                <div>
+                    <h1>Editar paquete</h1>
                     @using (Html.BeginForm("Editar", "Paquete", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.HiddenFor(p => p.Id)
-                        <p>Nombre</p>
-                        <br />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(p => p.Id);
+                        <h4 class="fuenteBlanca">Nombre</h4>
+
                         @Html.TextBoxFor(p => p.Nombre);
+                        @Html.ValidationMessageFor(p => p.Nombre, "", new { @class = "text-danger" })
                         <br />
-                        <p>Descripción</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Descripción</h4>
+
                         @Html.TextBoxFor(p => p.Descripcion);
+                        @Html.ValidationMessageFor(p => p.Descripcion, "", new { @class = "text-danger" })
                         <br />
-                        <p>Foto</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Foto</h4>
+
                         @Html.TextBoxFor(p => p.Foto, new { type = "file" });
+                        @Html.ValidationMessageFor(p => p.Foto, "", new { @class = "text-danger" })
                         <br />
-                        <p>Fecha de inicio</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Fecha de inicio</h4>
+
                         @Html.TextBoxFor(p => p.FechaInicio, new { type = "date" });
+                        @Html.ValidationMessageFor(p => p.FechaInicio, "", new { @class = "text-danger" })
                         <br />
-                        <p>Fecha de fin</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Fecha de fin</h4>
+
                         @Html.TextBoxFor(p => p.FechaFin, new { type = "date" });
+                        @Html.ValidationMessageFor(p => p.FechaFin, "", new { @class = "text-danger" })
                         <br />
-                        <p>Lugares disponibles</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Lugares disponibles</h4>
+
                         @Html.TextBoxFor(p => p.LugaresDisponibles);
+                        @Html.ValidationMessageFor(p => p.LugaresDisponibles, "", new { @class = "text-danger" })
                         <br />
-                        <p>Precio por persona</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Precio por persona</h4>
+
                         @Html.TextBoxFor(p => p.PrecioPorPersona);
+                        @Html.ValidationMessageFor(p => p.PrecioPorPersona, "", new { @class = "text-danger" })
                         <br />
-                        <p>Destacado</p>
-                        <br />
+                        <h4 class="fuenteBlanca">Destacado</h4>
+
                         @Html.CheckBoxFor(p => p.Destacado);
-                        <br />
-                        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Editar</button>
+                        <br />                        <br />
+                        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success margenInf boton2">Crear</button>
                     }
                 </div>
             </div>
