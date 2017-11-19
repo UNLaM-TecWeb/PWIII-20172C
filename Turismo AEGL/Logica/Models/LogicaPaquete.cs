@@ -41,7 +41,10 @@ namespace Logica.Models
                     Paquete pa = db.Paquete.Find(p.Id);
                     pa.Nombre = p.Nombre;
                     pa.Descripcion = p.Descripcion;
-                    pa.Foto = p.Foto;
+                    if (!p.Foto.Contains(null))
+                    {
+                        pa.Foto = p.Foto;
+                    }
                     pa.FechaInicio = p.FechaInicio;
                     pa.FechaFin = p.FechaFin;
                     pa.LugaresDisponibles = p.LugaresDisponibles;
@@ -81,6 +84,12 @@ namespace Logica.Models
             using (var db = new TurismoAEGLContext())
             {
                 Paquete paq = db.Paquete.Find(Id);
+                List<Reserva> res = db.Reserva.Where(r => r.IdPaquete == Id).ToList();
+                foreach(Reserva r in res)
+                {
+                    db.Reserva.Remove(r);
+                }
+                
                 db.Paquete.Remove(paq);
                 db.SaveChanges();
             }

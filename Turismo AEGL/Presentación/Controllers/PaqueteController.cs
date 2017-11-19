@@ -30,6 +30,9 @@ namespace Presentación.Controllers
             {
                 ViewBag.IdPaquete = id;
                 ViewBag.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
+
+
+
                 return View();
             }
 
@@ -39,7 +42,13 @@ namespace Presentación.Controllers
         [HttpPost]
         public ActionResult Reservar(ReservaViewModel re)
         {
+            TurismoAEGLContext db2 = new TurismoAEGLContext();
             Reserva r = logicaReserva.GenerarReserva(re.IdPaquete, re.CPersonas, re.IdUsuario);
+            Paquete pp = db2.Paquete.Find(re.IdPaquete);
+            if (pp.LugaresDisponibles < re.CPersonas)
+            {
+                return View("ErrorCantidad");
+            }
 
             logicaReserva.GuardarReserva(r);
             return RedirectToAction("Listar", "Reserva");
@@ -70,7 +79,7 @@ namespace Presentación.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Nuevo(PaqueteE p)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
 
             try
