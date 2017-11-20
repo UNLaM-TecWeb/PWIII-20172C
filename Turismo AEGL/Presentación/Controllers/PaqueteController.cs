@@ -130,9 +130,9 @@ namespace Presentación.Controllers
                         ImagenesUtility.Borrar(p.Foto);
                     }
 
-                    //creo un nombre significativo en este caso apellidonombre pero solo un caracter del nombre, ejemplo BatistutaG
+                  
                     string nombreSignificativo = p.NombreSignificativoImagen;
-                    //Guardar Imagen
+
                     string pathRelativoImagen = ImagenesUtility.Guardar(Request.Files[0], nombreSignificativo);
                     p.Foto = pathRelativoImagen;
                 }

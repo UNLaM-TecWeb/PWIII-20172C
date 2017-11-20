@@ -5,27 +5,28 @@
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 
-<h2>Eliminar</h2>
+<div class="col-md-3"></div>
+<div class="col-md-6 fondo-detalle fuenteBlanca">
 
-<h1>¿ESTA SEGURO QUE DESEA ELIMINAR ESTE PAQUETE?</h1>
+    <h1>ELIMINAR PAQUETE</h1>
 
-@using (Html.BeginForm("Eliminar", "Paquete"))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(p => p.Id)
-    <p>Nombre: @Html.DisplayFor(p => p.Nombre)</p>
-                        <br />
-    <p>Descripción: @Html.DisplayFor(p => p.Descripcion)</p>
-                        <br />
-    <p>Fecha de inicio: @Html.DisplayFor(p => p.FechaInicio)</p>
-                        <br />
-    <p>Fecha de fin: @Html.DisplayFor(p => p.FechaFin)</p>
-                        <br />
-    <p>Lugares disponibles: @Html.DisplayFor(p => p.LugaresDisponibles)</p>
-                        <br />
-    <p>Precio por persona: @Html.DisplayFor(p => p.PrecioPorPersona)</p>
-                        <br />
-    <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success">Eliminar</button>
-    <a href="/Admin/PanelAdmin/" class="btn btn-default">Volver</a>
-}
+    <h3>¿ESTA SEGURO QUE DESEA ELIMINAR ESTE PAQUETE?</h3>
 
+    @using (Html.BeginForm("Eliminar", "Paquete"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(p => p.Id)
+        <p>Nombre: @Html.DisplayFor(p => p.Nombre)</p>
+        <p>Descripción: @Html.DisplayFor(p => p.Descripcion)</p>
+        <p>Fecha de inicio: @Html.DisplayFor(p => p.FechaInicio)</p>
+        <p>Fecha de fin: @Html.DisplayFor(p => p.FechaFin)</p>
+        <p>Lugares disponibles: @Html.DisplayFor(p => p.LugaresDisponibles)</p>
+        <p>Precio por persona: @Html.DisplayFor(p => p.PrecioPorPersona)</p>
+        <br />
+        <button type="submit" id="btnIngresar" name="btnIngresar" class="btn btn-success margenInf">Eliminar</button>
+        <a href="/Paquete/Listar/" class="btn btn-danger margenInf">Volver</a>
+    }
+
+
+</div>
+<div class="col-md-3"></div>
