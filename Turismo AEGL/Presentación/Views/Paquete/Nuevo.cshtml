@@ -17,7 +17,6 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(p => p.Id);
                         <h4 class="fuenteBlanca">Nombre</h4>
                         
                         @Html.TextBoxFor(p => p.Nombre);

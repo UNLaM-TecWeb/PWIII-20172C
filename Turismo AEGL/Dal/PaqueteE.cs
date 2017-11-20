@@ -37,7 +37,7 @@ namespace Dal
         {
             get
             {
-                //en caso de ambos null, devuelve "ApellidoNombre"
+                //en caso de ambos null, devuelve "DescripcionNombre"
                 return string.Format("{0}{1}", this.Descripcion ?? "Descripcion", this.Nombre ?? "Nombre");
             }
         }

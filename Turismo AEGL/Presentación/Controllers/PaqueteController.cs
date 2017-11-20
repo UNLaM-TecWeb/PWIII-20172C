@@ -103,19 +103,12 @@ namespace Presentación.Controllers
         {
             if (Convert.ToBoolean(Session["EsAdmin"]))
             {
-                try
-                {
-
                     using (var db = new TurismoAEGLContext())
                     {
                         Paquete paq = db.Paquete.Find(id);
                         return View(paq);
                     }
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+
             }
 
             return RedirectToAction("Login", "Home");
