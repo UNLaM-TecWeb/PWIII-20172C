@@ -26,6 +26,12 @@ namespace Logica.Models
 
         public void GuardarReserva(Reserva re)
         {
+
+            Paquete paq = new Paquete();
+            paq = Contexto.Paquete.Where(p => p.Id == re.IdPaquete).First();
+            var cant = paq.LugaresDisponibles - re.CantPersonas;
+            paq.LugaresDisponibles = cant;
+
             Contexto.Reserva.Add(re);
             Contexto.SaveChanges();
 
