@@ -41,10 +41,7 @@ namespace Logica.Models
                     Paquete pa = db.Paquete.Find(p.Id);
                     pa.Nombre = p.Nombre;
                     pa.Descripcion = p.Descripcion;
-                    if (!p.Foto.Contains(null))
-                    {
-                        pa.Foto = p.Foto;
-                    }
+                    pa.Foto = p.Foto;
                     pa.FechaInicio = p.FechaInicio;
                     pa.FechaFin = p.FechaFin;
                     pa.LugaresDisponibles = p.LugaresDisponibles;
