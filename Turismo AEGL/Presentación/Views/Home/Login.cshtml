@@ -12,11 +12,12 @@
                 </div>
                 <div class="contenedor-formu">
                     <h2>Iniciar Sesi&oacute;n</h2>
-                    @using (Html.BeginForm("Login", "Home"))
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         <input type="hidden" name="Con" value="@ViewBag.Con" />
                         <input type="hidden" name="Act" value="@ViewBag.Act" />
                         <input type="hidden" name="Idp" value="@ViewBag.Idp" />
+
                         @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", @placeholder = "e-mail", @name = "Email", @autofocus = "autofocus" })
                         @Html.ValidationMessageFor(Model => Model.Email)
                         <br />

@@ -32,7 +32,7 @@ namespace Logica.Models
 
         }
 
-        public static void EditarPaquete(PaqueteE p)
+        public static void EditarPaquete(PaqueteM p)
         {
             try
             {

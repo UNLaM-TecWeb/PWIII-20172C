@@ -19,10 +19,11 @@ namespace Presentación.Controllers
         }
 
         [HttpGet]
-        public ActionResult Login(string con, string act)
+        public ActionResult Login(string con, string act, string Idp)
         {
             ViewBag.Con = con;
             ViewBag.Act = act;
+            ViewBag.Idp = Idp;
             return View();
         }
 
@@ -30,6 +31,9 @@ namespace Presentación.Controllers
         public ActionResult Login(LoginViewModel model)
         {
             Usuario usuario;
+
+            if (model.Idp == 0)
+                ModelState["Idp"].Errors.Clear();
 
             if (ModelState.IsValid)
             {
@@ -42,8 +46,14 @@ namespace Presentación.Controllers
                     Session["Email"] = usuario.Email;
                     Session["EsAdmin"] = (usuario.Admin) ? true : false;
 
-                    if (model.Act != null && model.Con != null)
+                   if (model.Act != null && model.Con != null)
+                    {
+                        if(model.Idp != 0)
+                        {
+                            return RedirectToAction(model.Act, model.Con, new { id = model.Idp });
+                        }
                         return RedirectToAction(model.Act, model.Con);
+                    }
                     else
                         return RedirectToAction("Index", "Home");
                 }

@@ -15,6 +15,6 @@ namespace Presentación.ViewModels
 
         public string Con { get; set; }
         public string Act { get; set; }
-        //public int Idp { get; set; }
+        public int Idp { get; set; }
     }
 }

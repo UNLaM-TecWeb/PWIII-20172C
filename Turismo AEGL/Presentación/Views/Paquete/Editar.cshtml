@@ -31,7 +31,7 @@
                         <br />
                         <h4 class="fuenteBlanca">Foto</h4>
 
-                        @Html.TextBoxFor(p => p.Foto, new { type = "file", Value = Model.Foto, Class = "valid"});
+                        @Html.TextBoxFor(p => p.Foto, new { type = "file" , Value = Model.Foto });
                         @Html.ValidationMessageFor(p => p.Foto, "", new { @class = "text-danger" })
                         <br />
                         <h4 class="fuenteBlanca">Fecha de inicio</h4>

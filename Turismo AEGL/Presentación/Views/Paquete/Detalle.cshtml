@@ -16,7 +16,7 @@
        <h4>Precio por persona: $@Model.PrecioPorPersona</h4>
        @if (Session["IdUsuario"] == null)
        {
-            <a href="@Url.Content("/Home/Login/")?con=Home&act=Index" class="btn btn-success boton2">Para reservar haga clic aqui</a>
+            <a href="@Url.Content("/Home/Login/")?con=User/Paquete&act=Reservar&Idp=@Model.Id" class="btn btn-success boton2">Para reservar haga clic aqui</a>
        }
        else
        {

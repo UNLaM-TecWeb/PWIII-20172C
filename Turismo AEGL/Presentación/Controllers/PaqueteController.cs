@@ -115,15 +115,26 @@ namespace Presentación.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(PaqueteE p)
+        public ActionResult Editar(PaqueteM p)
         {
             Paquete paqueteBD = LogicaPaquete.ObtenerPaquete().FirstOrDefault(pa => pa.Id == p.Id);
 
+            Boolean mismaFoto = false;
+
+            if (string.IsNullOrEmpty(p.Foto))
+            {
+                using (var db = new TurismoAEGLContext())
+                {
+                    string image = db.Paquete.Find(p.Id).Foto;
+                    p.Foto = image;
+                    mismaFoto = true;
+                }
+            }
             if (!ModelState.IsValid)
                 return View();
             if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
             {
-                if (!string.IsNullOrEmpty(p.Foto))
+                if (!string.IsNullOrEmpty(p.Foto) || mismaFoto != true)
                 {
                     if (!string.IsNullOrEmpty(paqueteBD.Foto))
                     {
