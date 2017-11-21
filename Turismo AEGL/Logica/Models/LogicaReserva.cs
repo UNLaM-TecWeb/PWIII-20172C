@@ -74,5 +74,37 @@ namespace Logica.Models
 
             return Historial;
         }
+
+        public void EliminarReserva(int idReserva)
+        {
+            Reserva QueryReserva = Contexto.Reserva.Where(r => r.Id == idReserva).First();
+            Paquete QueryPaquete = Contexto.Paquete.Where(p => p.Id == QueryReserva.IdPaquete).First();
+
+            QueryPaquete.LugaresDisponibles += QueryReserva.CantPersonas;
+            Contexto.Reserva.Remove(QueryReserva);
+            Contexto.SaveChanges();
+        }
+
+        public bool ReservaCorrespondeAUsuario(int idR, int idU)
+        {
+            bool resultado = false;
+
+            Reserva res = Contexto.Reserva.Where(r => r.Id == idR).Where(r2 => r2.IdUsuario == idU).First();
+
+            if (res != null)
+            {
+                resultado = true;
+            }
+
+            return resultado;
+        }
+
+        public DateTime FechaDeInicio(int idR)
+        {
+            Reserva res = Contexto.Reserva.Where(r => r.Id == idR).First();
+            Paquete paq = Contexto.Paquete.Where(p => p.Id == res.IdPaquete).First();
+
+            return paq.FechaInicio;
+        }
     }
 }

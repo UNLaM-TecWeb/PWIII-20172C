@@ -11,6 +11,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{CE78D4CB-7355-4DC4-B2BE-1F475760415E}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSReserva", "WSReserva\", "{ED32BC9A-D2E1-4A16-89E8-19586E05FE61}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{d723b52d-fbc4-4ba1-a5da-45aebc64d4ca}|Logica.dll;{58DFC80F-0EBF-434E-89DC-DFE9F0D4340D}|Dal.dll;{CE78D4CB-7355-4DC4-B2BE-1F475760415E}|Modelo.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53735"
+		Debug.AspNetCompiler.PhysicalPath = "WSReserva\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53735\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53735"
+		Release.AspNetCompiler.PhysicalPath = "WSReserva\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53735\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53735"
+		SlnRelativePath = "WSReserva\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +56,10 @@ Global
 		{CE78D4CB-7355-4DC4-B2BE-1F475760415E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE78D4CB-7355-4DC4-B2BE-1F475760415E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE78D4CB-7355-4DC4-B2BE-1F475760415E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED32BC9A-D2E1-4A16-89E8-19586E05FE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED32BC9A-D2E1-4A16-89E8-19586E05FE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED32BC9A-D2E1-4A16-89E8-19586E05FE61}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED32BC9A-D2E1-4A16-89E8-19586E05FE61}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
