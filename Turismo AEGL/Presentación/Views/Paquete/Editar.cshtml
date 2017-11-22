@@ -22,48 +22,49 @@
 
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Nombre</h4>
-                            @Html.TextBoxFor(p => p.Nombre, new { @class = "boton2" });
+                            @Html.TextBoxFor(p => p.Nombre, new { @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.Nombre, "", new { @class = "text-danger" })
                             <br />
                         </div>
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Descripción</h4>
-                            @Html.TextBoxFor(p => p.Descripcion, new { @class = "boton2" });
+                            @Html.TextBoxFor(p => p.Descripcion, new { @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.Descripcion, "", new { @class = "text-danger" })
                             <br />
                         </div>
 
                         <div class="form-group">
-                            <h4 class="fuenteBlanca">Foto</h4>
+                        <h4 class="fuenteBlanca">Foto</h4>
+                        <img src="@Model.Foto" class="img-responsive imagen"/>
 
-                        @Html.TextBoxFor(p => p.Foto, new { type = "file", Value = Model.Foto, Class = "valid"});
+                        @Html.TextBoxFor(p => p.Foto, new { type = "file", Value = Model.Foto, Class = "valid"})
                         @Html.ValidationMessageFor(p => p.Foto, "", new { @class = "text-danger" })
                         <br />
 
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Fecha de inicio</h4>
-                            @Html.TextBoxFor(p => p.FechaInicio, new { type = "date", Value = Model.FechaInicio.ToString("yyyy-MM-dd"), @class = "boton2" });
+                            @Html.TextBoxFor(p => p.FechaInicio, new { type = "date", Value = Model.FechaInicio.ToString("yyyy-MM-dd"), @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.FechaInicio, "", new { @class = "text-danger" })
                             <br />
                         </div>
 
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Fecha de fin</h4>
-                            @Html.TextBoxFor(p => p.FechaFin, new { type = "date", Value = Model.FechaFin.ToString("yyyy-MM-dd"), @class = "boton2" });
+                            @Html.TextBoxFor(p => p.FechaFin, new { type = "date", Value = Model.FechaFin.ToString("yyyy-MM-dd"), @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.FechaFin, "", new { @class = "text-danger" })
                             <br />
                         </div>
 
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Lugares disponibles</h4>
-                            @Html.TextBoxFor(p => p.LugaresDisponibles, new { @class = "boton2" });
+                            @Html.TextBoxFor(p => p.LugaresDisponibles, new { @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.LugaresDisponibles, "", new { @class = "text-danger" })
                             <br />
                         </div>
 
                         <div class="form-group">
                             <h4 class="fuenteBlanca">Precio por persona</h4>
-                            @Html.TextBoxFor(p => p.PrecioPorPersona, new { @class = "boton2" });
+                            @Html.TextBoxFor(p => p.PrecioPorPersona, new { @class = "boton2" })
                             @Html.ValidationMessageFor(p => p.PrecioPorPersona, "", new { @class = "text-danger" })
                             <br />
                         </div>
