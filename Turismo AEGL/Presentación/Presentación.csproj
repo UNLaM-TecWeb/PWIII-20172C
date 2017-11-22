@@ -170,6 +170,7 @@
     <Content Include="Content\jquery-3.2.1\jquery.validate.min.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.js" />
     <Content Include="Content\jquery-3.2.1\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\js\reserva.js" />
     <Content Include="Content\styles\cssBase.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />

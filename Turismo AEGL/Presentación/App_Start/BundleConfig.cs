@@ -12,7 +12,8 @@ namespace Presentación.App_Start
             // Script bundles
             ScBundle.Include(
                 "~/Content/jquery-3.2.1/*.js", 
-                "~/Content/bootstrap-3.3.7/js/*.js");
+                "~/Content/bootstrap-3.3.7/js/*.js",
+                "~/Content/js/*.js");
 
             // Style bundles
             StBundle.Include(

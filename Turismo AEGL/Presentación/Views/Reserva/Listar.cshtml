@@ -18,7 +18,7 @@
                         <th><h4>Precio total</h4></th>
                         <th><h4></h4></th>
                     </tr>
-                    @foreach (var reserva in Model)
+                    @foreach(var reserva in Model)
                     {
                         <tr>
                             <td>@reserva.Nombre</td>
@@ -27,7 +27,7 @@
                             <td>@reserva.CantidadDePersonas</td>
                             <td>@reserva.PrecioPorPersona</td>
                             <td>@reserva.PrecioTotal</td>
-                            <td><a href="@Url.Content("/User/Reserva/Cancelar/")@reserva.IdReserva" class="btn btn-danger">Cancelar reserva</a></td>
+                            <td><button class="btn btn-danger" onclick="deleteReserva(@reserva.IdReserva)" name="Cancelar reserva">Cancelar reserva</button></td>
                         </tr>
                     }
                 </table>
