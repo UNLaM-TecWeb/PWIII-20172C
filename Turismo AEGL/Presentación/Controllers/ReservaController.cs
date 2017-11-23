@@ -24,13 +24,23 @@ namespace Presentación.Controllers
 
             Listado = logicaReserva.ListarReservas(Convert.ToInt32(Session["IdUsuario"]));
             return View(Listado);
-
         }
 
         [HttpGet]
         public ActionResult Cancelar(int id)
         {
-            reserva.EliminarReserva(Convert.ToInt32(id));
+            string usuario = Session["IdUsuario"].ToString();
+
+            if (usuario != String.Empty &&
+                reserva.ReservaCorrespondeAUsuario(id, Convert.ToInt32(usuario)) &&
+                reserva.FechaDeInicio(id) > System.DateTime.Now)
+            {
+                reserva.EliminarReserva(Convert.ToInt32(id));
+            }
+            else
+            {
+                TempData["error"] = "Ha ocurrido un error y la reserva no ha podido ser cancelada.";
+            }
 
             return RedirectToAction("Listar", "Reserva");
         }

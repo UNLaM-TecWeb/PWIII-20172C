@@ -20,7 +20,7 @@
                     </tr>
                     @foreach(var reserva in Model)
                     {
-                        <tr>
+                        <tr id="tr_@reserva.IdReserva">
                             <td>@reserva.Nombre</td>
                             <td>@reserva.FechaInicio</td>
                             <td>@reserva.FechaFin</td>
