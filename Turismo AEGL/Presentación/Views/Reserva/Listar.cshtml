@@ -1,5 +1,4 @@
-﻿@using Modelo.ViewModels
-@model IEnumerable<HistorialReservasViewModel>
+﻿@model IEnumerable<Modelo.ViewModels.HistorialReservasViewModel>
 @{
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
@@ -18,7 +17,7 @@
                         <th><h4>Precio total</h4></th>
                         <th><h4></h4></th>
                     </tr>
-                    @foreach(var reserva in Model)
+                    @foreach (var reserva in Model)
                     {
                         <tr id="tr_@reserva.IdReserva">
                             <td>@reserva.Nombre</td>
@@ -27,7 +26,18 @@
                             <td>@reserva.CantidadDePersonas</td>
                             <td>@reserva.PrecioPorPersona</td>
                             <td>@reserva.PrecioTotal</td>
-                            <td><button class="btn btn-danger" onclick="deleteReserva(@reserva.IdReserva)" name="Cancelar reserva">Cancelar reserva</button></td>
+                            @if (reserva.FechaInicio <= DateTime.Now)
+                            {
+                                <td>
+                                    <p class="error-msj">La reserva caduc&oacute;.</p>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <button class="btn btn-danger" onclick="deleteReserva(@reserva.IdReserva)" name="Cancelar reserva">Cancelar reserva</button>
+                                </td>
+                            }
                         </tr>
                     }
                 </table>

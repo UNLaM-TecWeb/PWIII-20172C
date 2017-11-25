@@ -37,10 +37,6 @@ namespace Presentación.Controllers
             {
                 reserva.EliminarReserva(Convert.ToInt32(id));
             }
-            else
-            {
-                TempData["error"] = "Ha ocurrido un error y la reserva no ha podido ser cancelada.";
-            }
 
             return RedirectToAction("Listar", "Reserva");
         }
